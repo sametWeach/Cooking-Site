@@ -1,0 +1,38 @@
+﻿@model Kategori
+@{
+    ViewBag.Title = "KategoriGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="card card_border py-2 mb-4">
+    <div class="cards__heading ">
+        <h3>Kategori Güncelle <span></span></h3>
+    </div>
+    <div class="card-body">
+
+        @using (Html.BeginForm("KategoriGuncelle", "Yonetim", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="input__label">Kategori Adı</label>
+                <input type="text" class="form-control input-style" name="KategoriAd" id="exampleInputEmail1" aria-describedby="emailHelp" value="@Model.KategoriAd">
+                <small id="emailHelp" class="form-text text-muted">
+                </small>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label for="exampleInputFile" class="input__label">Kategori Resmini Seç </label>
+                <div class="input-group">
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-control" name="Resimkg" id="exampleInputFile" value="@Model.KategoriResim" />
+                        <label class="" for="exampleInputFile"></label>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-style mt-4">Kaydet</button>
+
+        }
+    </div>
+</div>
+
+
+

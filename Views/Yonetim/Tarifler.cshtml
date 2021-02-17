@@ -1,0 +1,99 @@
+﻿@model List<Tarif>
+@{
+    ViewBag.Title = "Tarifler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<style>
+    
+    /* visited link */
+    a:visited {
+        color: black;
+    }
+
+
+
+    a:link {
+        color: black;
+    }
+
+    a:hover {
+        color: #FC0254;
+    }
+
+</style>
+
+<div class="col-lg-12 mb-4">
+    <div class="card card_border">
+        <div class="card-header chart-grid__header" style="font-size:24px;">
+            Tarifler
+        </div>
+
+
+        <div class="card-header chart-grid__header">
+
+            Tarif Ekle  &emsp;
+            <i class="fa fa-angle-double-right"></i>
+            &emsp;
+            <a class="btn btn-success" style="text-align:right;" href="/Yonetim/TarifYaz">
+                <i style="color:white;" class="fa fa-plus-square"></i>
+            </a>
+            @using (Html.BeginForm("Tarifler", "Yonetim", FormMethod.Get))
+            {
+                <p class="text-right">
+                    Tarif Adı: @Html.TextBox("p")
+                    <input type="submit" value="TarifAra" />
+                </p>
+
+            }
+        </div>
+
+
+
+
+        <div class="card-body">
+            <div class="accordion" id="accordionExample">
+
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr class="text-center">
+                            @*<th scope="col">#</th>*@
+                            <th scope="col">Resim</th>
+                            <th scope="col">Tarif Adı</th>
+                            <th scope="col">Güncelle</th>
+                            <th scope="col">Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var tf in Model)
+                        {
+                            <tr class="text-center">
+                                @*<th scope="row">@kt.KategoriID </th>*@
+                                <td> <img class="profile-user-img img-fluid img-circle" style="border-radius:20%;" src="@tf.Resim.Kucukresimyol" alt="TariflerResim"></td>
+                                <td><a href="/Tarifler/Index/@tf.TarifID">@tf.Baslik</a></td>
+                                <td>
+                                    <a style="color:white;" class="btn btn-info" href="/Yonetim/TarifGuncelle/@tf.TarifID">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a style="color:white;"  class="btn btn-danger" href="/Yonetim/TarifSil/@tf.TarifID">
+                                        @*onclick="return confirm('Silmek istediğinizden emin misiniz ?')"*@
+                                        <i class="fa fa-trash"></i>
+
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

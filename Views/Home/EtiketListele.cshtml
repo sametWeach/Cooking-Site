@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewBag.Title = "EtiketListele";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Etiket>
+
+    <style>
+     
+        /* visited link */
+        a:visited {
+            color: black;
+        }
+             
+
+        /* selected link */
+        a:active {
+            color: #FC0254;
+        } 
+
+        a:link {
+            color:black;
+        }
+        a:hover {
+            color: #FC0254;
+        }
+    </style>
+
+
+
+<div class="card col-12 mt-5">
+    <div class="card-header" style="background-color:white;">
+        <h3 class="card-title">Etiketler</h3>
+
+            @using (Html.BeginForm("EtiketListele", "Home", FormMethod.Get))
+                {
+                    <p class="text-right">
+                        @Html.TextBox("p")
+                        <input type="submit"class=" float-right" value="KategoriAra" />
+                    </p>
+
+                }
+
+    </div>
+    <!-- /.card-header -->
+    <div class="card-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>                  
+                    <th>Etiket Adı</th>
+                    <th style="width: 40px">Tarif sayısı</th>
+                </tr>
+            </thead>
+            <tbody>
+
+
+                @foreach (var etk in Model)
+                {
+
+
+                    <tr >                       
+                        <td ><a href="/Home/EtiketTarifListele/@etk.EtiketID">@etk.Ad</a></td>
+                        <td>@etk.Tarif.Count</td>
+                    </tr>
+
+                }
+
+            </tbody>
+        </table>
+    </div>
+    <!-- /.card-body -->
+    <div class="card-footer clearfix">
+        <ul class="pagination pagination-sm m-0 float-right">
+            <li class="page-item"><a class="page-link" href="#">«</a></li>
+            <li class="page-item"><a class="page-link" href="#">1</a></li>
+            <li class="page-item"><a class="page-link" href="#">2</a></li>
+            <li class="page-item"><a class="page-link" href="#">3</a></li>
+            <li class="page-item"><a class="page-link" href="#">»</a></li>
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+<script type="text/javascript">
+    function arttirma() {
+        var deger = parseInt(document.getElementById('sayi').value);
+        document.getElementById('sayi').value = deger + 1;
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="col-lg-3 col-sm-6">
+        <div class="recipe-item">
+            <a href="#"><img src="" alt=""></a>
+            <div class="ri-text">
+
+                <a href="/Home/EtiketTarifListele/@etk.EtiketID">
+                    <h4>@etk.Ad</h4>
+                </a>
+                <p>
+
+                </p>
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div class="row">
+        <div class="col-lg-12">
+            <div class="recipe-pagination">
+                <a href="#" class="active">01</a>
+                <a href="#">02</a>
+                <a href="#">03</a>
+                <a href="#">04</a>
+                <a href="#">İleri</a>
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+

@@ -1,0 +1,27 @@
+﻿@model Etiket
+@{
+    ViewBag.Title = "EtiketGuncelle";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+    <div class="card card_border py-2 mb-4">
+        <div class="cards__heading ">
+            <h3>Etiket Güncelle <span></span></h3>
+        </div>
+        <div class="card-body">
+
+            @using (Html.BeginForm("EtiketGuncelle", "Yonetim", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                <div class="form-group">
+                    <label for="exampleInputEmail1" class="input__label">Etiket Adı</label>
+                    <input type="text" class="form-control input-style" name="Ad" id="exampleInputEmail1" aria-describedby="emailHelp" value="@Model.Ad">
+                    <small id="emailHelp" class="form-text text-muted">
+                    </small>
+                </div>
+                <hr />
+                <button type="submit" class="btn btn-primary btn-style mt-4">Kaydet</button>
+
+            }
+        </div>
+    </div>

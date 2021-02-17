@@ -1,0 +1,81 @@
+﻿@model List<Etiket>
+@{
+    ViewBag.Title = "Etiketler";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="col-lg-12 mb-4">
+    <div class="card card_border">
+        <div class="card-header chart-grid__header" style="font-size:24px;">
+            Etiketler
+        </div>
+
+
+        <div class="card-header chart-grid__header">
+
+            Etiket Ekle  &emsp;
+            <i class="fa fa-angle-double-right"></i>
+            &emsp;
+            <a class="btn btn-success" style="text-align:right;" href="/Yonetim/EtiketEkle">
+                <i class="fa fa-plus-square"></i>
+            </a>
+            @using (Html.BeginForm("Etiketler", "Yonetim", FormMethod.Get))
+            {
+                <p class="text-right">
+                    Etiket Adı: @Html.TextBox("p")
+                    <input type="submit" value="EtiketAra" />
+                </p>
+
+            }
+
+        </div>
+
+
+
+
+        <div class="card-body">
+            <div class="accordion" id="accordionExample">
+
+                <table class="table table-hover table-bordered">
+                    <thead>
+                        <tr class="text-center">
+                            @*<th scope="col">#</th>*@
+                           
+                            <th scope="col">Etiket Adı</th>
+                            <th scope="col">Güncelle</th>
+                            <th scope="col">Sil</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var et in Model)
+                        {
+                            <tr class="text-center">
+                                @*<th scope="row">@kt.KategoriID </th>*@
+                               
+                                <td>@et.Ad</td>
+                                <td>
+                                    <a class="btn btn-info" href="/Yonetim/EtiketGuncelle/@et.EtiketID">
+                                        <i class="fa fa-edit"></i>
+                                    </a>
+                                </td>
+                                <td>
+                                    <a class="btn btn-danger" href="/Yonetim/EtiketSil/@et.EtiketID">
+                                        @*onclick="return confirm('Silmek istediğinizden emin misiniz ?')"*@
+                                        <i class="fa fa-trash"></i>
+
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+
+
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

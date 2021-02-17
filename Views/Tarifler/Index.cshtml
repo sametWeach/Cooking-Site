@@ -1,0 +1,102 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model Tarif
+
+<div class="recipe-top text-center">
+    <div class="container-fluid">
+        <div class="recipe-title">         
+            <h2>@Model.Baslik</h2>
+            <ul class="tags">
+                <li>@Model.Kategori.KategoriAd</li>
+                <li style="background-color:#fc5502;">@Model.Etiket.Ad</li>
+                
+            </ul>
+        </div>
+        <img src="@Model.Resim.Buyukresimyol" alt="">
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-5">
+            <div class="ingredients-item">
+                <div class="intro-item" >
+                    <img src="@Model.Resim.Kucukresimyol" alt="">
+                    <h2>@Model.Baslik</h2>
+                    <div class="rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                    </div>
+                    <div class="reviews">4.9 from 25 reviews</div>
+                    <div class="recipe-time">
+                        <ul>
+                            <li>Hazırlama Süresi: <span>@Model.Hazirlanma dk</span></li>
+                            <li>Pişirme Süresi: <span>@Model.Pisirme dk</span></li>
+                            <li>Kaç Kişilik: <span>@Model.KacKisi</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="ingredient-list">
+                    <div class="recipe-btn">
+                        @*<a href="#">Tarifi Yazdır</a>
+                        <a href="#" class="black-btn">Favorilerime Ekle</a>*@
+                    </div>
+                    <div class="list-item">
+                        <h5>Malzemeler</h5>
+                        <div class="salad-list">
+                            <p>   @Html.Raw(Model.Malzemeler)    </p>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="">
+                <div class="">
+                    <h6></h6>
+                    <span></span>
+                </div>
+                <ul>
+                   
+                </ul>
+            </div>
+        </div>
+        <div class="col-lg-7">
+            <div class="recipe-right">
+                <div class="recipe-desc">
+                    <h3>Açıklama</h3>
+                    <p>
+                      @Model.Aciklama
+                    </p>
+                    
+                </div>
+                <div class="instruction-list">
+                    <h3>@Model.Baslik Tarifinin Yapılışı</h3>
+                    <p>   @Html.Raw(Model.Yapilis) </p>
+                  
+                </div>
+                @*<div class="notes">
+                    <h3>Notlar</h3>
+                    <div class="notes-item">
+                        <span>i</span>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                            incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet. Donec in
+                            sodales dui, a blandit nunc. Pellentesque id eros venenatis, sollicitudin neque
+                            sodales, vehicula nibh. Nam massa odio, porttitor vitae efficitur non, ultricies
+                            volutpat tellus. Cras egestas in lacus a finibus. Suspendisse sed urna at elit
+                            condimentum viverra.
+                        </p>
+                    </div>
+                   
+                </div>*@
+            </div>
+        </div>
+    </div>
+</div>
+

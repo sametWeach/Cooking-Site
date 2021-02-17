@@ -1,0 +1,171 @@
+﻿@using MvcYemek.Helpers
+@{ 
+    Kullanici k = (Kullanici)Session["Kullanici"];
+    Yonetici yn = (Yonetici)Session["Yonetici"];
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Yoga Studio Template">
+    <meta name="keywords" content="Yoga, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Weach | Yemek</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Content/Tema/font/css/font-awesome.min.css">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="/Content/Tema/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="/Content/Tema/css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="/Content/Tema/css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="/Content/Tema/css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="/Content/Tema/css/style.css" type="text/css">
+</head>
+
+<body>
+    <!-- Page Preloder -->
+    <div id="preloder">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Header Section Begin -->
+    <header class="header-section-other">
+        <div class="container-fluid">
+            <div class="logo">
+                <a href="/Home/Index"><img src="~/Content/Tema/img/little-logo.png" alt=""></a>
+            </div>
+            <div class="nav-menu">
+                <nav class="main-menu mobile-menu">
+                    <ul>
+                        <li class="@Html.ActivePage("Home","Index")"><a href="/Home/Index">Ana Sayfa</a></li>
+                        <li class="@Html.ActivePage("Home","KategoriListele")"><a href="/Home/KategoriListele">Kategoriler</a></li>
+                        <li class="@Html.ActivePage("Home","EtiketListele")"><a href="/Home/EtiketListele">Etiketler</a></li>
+                        <li class="@Html.ActivePage("Home","Iletisim")"><a href="/Home/Iletisim">İletişim</a></li>
+
+                        @if (k == null)
+                        {
+
+            <li><a href="/GirisYap/Index" class="btn btn-block" style="background-color:#FC0254; color:white;">Giris Yap </a></li>
+                            <li><a href="/KayıtOl/Index" class="btn btn-block" style="background-color:#FC0254; color:white;">Kayıt Ol </a></li> }
+                                        else
+                                        {
+                            <li><a href="/Kullanici/Index" class="btn btn-block" style="background-color:#FC0254; color:white;">Profilimi Gör </a></li>
+                                            <li><a href="/Home/CikisYap" class="btn btn-block" style="background-color:#FC0254; color:white;">Çıkış Yap </a></li>}
+
+
+                    </ul>
+
+
+
+                </nav>
+                <div class="nav-right search-switch">
+                    <i class="fa fa-search"></i>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+    <!-- Hero Search Section Begin -->
+    <div class="hero-search set-bg" data-setbg="/Content/Tema/img/search-bg.jpg">
+        <div class="container">
+            <div class="filter-table">
+
+
+                <form action="#" class="filter-search">
+
+                   
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+    @*@{ Html.RenderAction("Arama", "Home"); }*@
+
+    <!-- Hero Search Section End -->
+    <!-- Single Recipe Section Begin -->
+    <section class="single-page-recipe ">
+        @*spad *@
+        <div class="container">
+
+
+            @RenderBody()
+
+
+
+        </div>
+
+
+
+    </section>
+    <!-- Single Recipe Section End -->
+    <!-- Similar Recipe Section Begin -->
+    <!-- Similar Recipe Section End -->
+    <!-- Footer Section Begin -->
+    <footer class="footer-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="fs-left">
+                        <div class="logo">
+                            <a href="/Home/Index">
+                                <img src="/Content/Tema/img/footer-logo.png" alt="">
+                            </a>
+                        </div>
+                        <p>
+                            Elinde ki malzemeler ile istediğin tarife hızlıca ulaşabilirsin. Tek yapman gereken malzemeleri seçip aramak.
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-6 offset-lg-1">
+                    <form action="#" class="subscribe-form">
+                        <h3>Haber bültenimize abone ol</h3>
+                        <input type="email" placeholder="Eposta Adresiniz...">
+                        <button type="submit">Abone ol</button>
+                    </form>
+                    <div class="social-links">
+                        <a href="#"><i class="fa fa-instagram"></i><span>Instagram</span></a>
+                        <a href="#"><i class="fa fa-facebook"></i><span>Facebook</span></a>
+                        <a href="#"><i class="fa fa-twitter"></i><span>Twitter</span></a>
+                        <a href="#"><i class="fa fa-youtube"></i><span>Youtube</span></a>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="copyright-text">
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                        Copyright &copy;
+                        <script>document.write(new Date().getFullYear());</script> Tüm hakları Saklıdır | Site yapımı <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="#" target="_blank">Weach~Yapım</a>
+                        <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Footer Section End -->
+    <!-- Search model -->
+    <div class="search-model">
+        <div class="h-100 d-flex align-items-center justify-content-center">
+            <div class="search-close-switch">+</div>
+            <form class="search-model-form">
+                <input type="text" id="search-input" placeholder="Search here.....">
+            </form>
+        </div>
+    </div>
+    <!-- Search model end -->
+    <!-- Js Plugins -->
+    <script src="/Content/Tema/js/jquery-3.3.1.min.js"></script>
+    <script src="/Content/Tema/js/bootstrap.min.js"></script>
+    <script src="/Content/Tema/js/jquery.slicknav.js"></script>
+    <script src="/Content/Tema/js/jquery.nice-select.min.js"></script>
+    <script src="/Content/Tema/js/mixitup.min.js"></script>
+    <script src="/Content/Tema/js/main.js"></script>
+</body>
+
+</html>

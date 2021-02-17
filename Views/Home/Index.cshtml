@@ -1,0 +1,101 @@
+﻿@model IEnumerable<Tarif>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@helper Kisalt(string metin)
+{
+
+    if (metin.Length > 300)
+    {
+        @metin.Substring(0, 300);
+    }
+    else
+    {
+        @metin;
+    }
+
+}
+<style>
+
+    #p {
+        border: 2px solid #FC0254;
+        border-radius: 8px;
+    }
+
+</style>
+
+<div class="hero-search set-bg" style="height:150px;">
+    <div class="container">
+        <div class="filter-table">
+
+
+            <form action="#" class="filter-search">
+
+                @using (Html.BeginForm("Arama", "Home", FormMethod.Get))
+                {
+                    <p class="text-center">
+                        @Html.TextBox("p", null, new {@placeholder = "Aramak İstediğiniz Malzemeyi Yazınız..." })
+                        <input type="submit" class="btn" style="background-color:#FC0254; color:white; border:none; padding-left:0px; " value="Malzemeye Göre Ara" />
+                    </p>
+
+                }
+
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@foreach (var tListe in Model)
+{
+    <div class="container-fluid mt-5">
+
+        <div class="top-recipe-item">
+            <div class="row">
+                <div class="col-sm-3">
+                    <div class="ml-5 pl-5">
+
+                        <a href="/Tarifler/Index/@tListe.TarifID"><img src="@tListe.Resim.Ortaresimyol" /></a>
+
+                    </div>
+                </div>
+                <div class="col-sm-9">
+                    <div class="top-recipe-text pr-5">
+                        <div class="cat-name">@tListe.Kategori.KategoriAd</div>
+                        <div class="cat-name" style="background-color:#fc5502;">@tListe.Etiket.Ad</div>
+                        <a href="/Tarifler/Index/@tListe.TarifID">
+                            <h4>@tListe.Baslik</h4>
+                        </a>
+                        <p> @Kisalt(tListe.Aciklama)... </p>
+
+                    </div>
+                    <small><a style="color:#FC0254;font-weight:bold; " href="#" title=""><i class="fa fa-eye"></i> @tListe.Goruntulenme</a></small>
+                    <small><a style="color:#FC0254;font-weight:bold;" href="" title="">@tListe.YayınTarihi.ToString("dd.MM.yyyy")</a></small>
+                    <small>
+                        <a style="color:#FC0254;font-weight:bold;" href="" title="">
+
+                            @if (tListe.KullaniciID == null)
+                            {
+                                @tListe.Yonetici.YoneticiAd
+                            }
+                            else
+                            {
+                                @tListe.Kullanici.Ad @Convert.ToString(tListe.Kullanici.Soyad).ToUpper()
+                            }
+                        </a>
+                    </small>
+                    @*<small><a style="color:#FC0254;font-weight:bold;" href="#" title="">Yorumlar : @tListe.Yorum.Count</a></small>*@
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+}
+
+
+
+
+

@@ -1,0 +1,198 @@
+﻿<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+-->
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Weach | Kullanici Panel</title>
+
+    <!-- Template CSS -->
+    <link rel="stylesheet" href="/Content/Admin/assets/css/style-starter.css">
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Nunito:300,400,600,700,800,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/Content/Tema/font/css/font-awesome.min.css">
+</head>
+
+<body class="sidebar-menu-collapsed">
+    <div class="se-pre-con"></div>
+
+
+    <section>
+        <!-- sidebar menu start -->
+        <div class="sidebar-menu sticky-sidebar-menu" style="background-color:#FC0254; ">
+
+            <!-- logo start -->
+            <div class="logo" style="        background-color: #212529;">
+                <h1><a href="/Kullanici/Index">Weach</a></h1>
+            </div>
+
+            <!-- if logo is image enable this -->
+            <!-- image logo --
+            <div class="logo">
+              <a href="index.html">
+                <img src="image-path" alt="Your logo" title="Your logo" class="img-fluid" style="height:35px;" />
+              </a>
+            </div>
+            <!-- //image logo -->
+
+            <div class="logo-icon text-center" style="  background-color: #212529;">
+                <a href="/Kullanici/Index" title="logo"><img src="/Content/Admin/assets/images/logo.png" alt="logo-icon"> </a>
+            </div>
+            <!-- //logo end -->
+
+            <div class="sidebar-menu-inner">
+
+                <!-- sidebar nav start -->
+                <ul class="nav nav-pills nav-stacked custom-nav">
+                    <li><a href="/Kullanici/Index"><i class="fa fa-home" style="color:white;"></i><span style="color:white;">Ana Sayfa</span></a></li>
+                    <li><a href="/Kullanici/Tarifler"><i class="fa fa-pencil" style="color:white;"></i> <span style="color:white;">Tarifler</span></a></li>
+                    
+                </ul>
+                <!-- //sidebar nav end -->
+                <!-- toggle button start -->
+                <a class="toggle-btn" style="background-color:#FC0254;">
+                    <i class="fa fa-angle-double-left menu-collapsed__left" style="color:white;"><span style="color:white;">Hızlı İşlemler</span></i>
+                    <i class="fa fa-angle-double-right menu-collapsed__right" style="color:white;"></i>
+                </a>
+                <!-- //toggle button end -->
+
+            </div>
+        </div>
+        <!-- //sidebar menu end -->
+        <!-- header-starts -->
+        <div class="header sticky-header" style="background-color:#212529;">
+
+            <!-- notification menu start -->
+            <div class="menu-right">
+                <div class="navbar user-panel-top">
+                    <div class="search-box">
+
+                        <a href="/Home/Index" class="btn btn-block" style="background-color:#FC0254; color:white;">Ana Sayfa </a>
+
+                    </div>
+                    <div class="user-dropdown-details d-flex">
+                        <div class="profile_details_left">
+                                                    
+                        </div>
+
+
+                        <div class="profile_details">
+                          
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--notification menu end -->
+        </div>
+
+        <!-- //header-ends -->
+        <!-- main content start -->
+        <div class="main-content">
+
+            <!-- content -->
+            <div class="container-fluid content-top-gap">
+
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb my-breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Panel</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Kullanici</li>
+                    </ol>
+                </nav>
+
+                @RenderBody()
+            </div>
+            <!-- //content -->
+        </div>
+        <!-- main content end-->
+    </section>
+    <!--footer section start-->
+    @*<footer class="dashboard">
+
+                    <p>
+                        &copy 2020 Collective. All Rights Reserved | Design by <a href="https://w3layouts.com/" target="_blank"
+                                                                                  class="text-primary">W3layouts.</a>
+                    </p>
+
+        </footer>*@
+
+
+    <!--footer section end-->
+    <!-- move top -->
+    <button onclick="topFunction()" id="movetop" class="bg-primary" title="Go to top">
+        <span class="fa fa-angle-up"></span>
+    </button>
+    <script>// When the user scrolls down 20px from the top of the document, show the button
+  window.onscroll = function () {
+    scrollFunction()
+  };
+
+  function scrollFunction() {
+    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+      document.getElementById("movetop").style.display = "block";
+    } else {
+      document.getElementById("movetop").style.display = "none";
+    }
+  }
+
+  // When the user clicks on the button, scroll to the top of the document
+  function topFunction() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }</script>
+    <!-- /move top -->
+
+
+    <script src="/Content/Admin/assets/js/jquery-3.3.1.min.js"></script>
+    <script src="/Content/Admin/assets/js/jquery-1.10.2.min.js"></script>
+
+    <!-- chart js -->
+    <script src="/Content/Admin/assets/js/Chart.min.js"></script>
+    <script src="/Content/Admin/assets/js/utils.js"></script>
+    <!-- //chart js -->
+    <!-- Different scripts of charts.  Ex.Barchart, Linechart -->
+    <script src="/Content/Admin/assets/js/bar.js"></script>
+    <script src="/Content/Admin/assets/js/linechart.js"></script>
+    <!-- //Different scripts of charts.  Ex.Barchart, Linechart -->
+
+
+    <script src="/Content/Admin/assets/js/jquery.nicescroll.js"></script>
+    <script src="/Content/Admin/assets/js/scripts.js"></script>
+
+    <!-- close script -->
+    <script>var closebtns = document.getElementsByClassName("close-grid");
+  var i;
+
+  for (i = 0; i < closebtns.length; i++) {
+    closebtns[i].addEventListener("click", function () {
+      this.parentElement.style.display = 'none';
+    });
+  }</script>
+    <!-- //close script -->
+    <!-- disable body scroll when navbar is in active -->
+    <script>$(function () {
+    $('.sidebar-menu-collapsed').click(function () {
+      $('body').toggleClass('noscroll');
+    })
+  });</script>
+    <!-- disable body scroll when navbar is in active -->
+    <!-- loading-gif Js -->
+    <script src="assets/js/modernizr.js"></script>
+    <script>$(window).load(function () {
+         // Animate loader off screen
+         $(".se-pre-con").fadeOut("slow");;
+     });</script>
+    <!--// loading-gif Js -->
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/Content/Admin/assets/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
